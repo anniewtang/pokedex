@@ -13,8 +13,7 @@ class OpeningViewController: UIViewController {
     var searchLabel: UILabel!
     var categoryButton: UIButton!
     var nameButton: UIButton!
-    var randomButton: UIButton!
-    
+    var randomButton: UIButton!    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,5 +89,6 @@ class OpeningViewController: UIViewController {
         randomButton.contentHorizontalAlignment = .center
         self.view.addSubview(randomButton)
     }
+
 }
 
