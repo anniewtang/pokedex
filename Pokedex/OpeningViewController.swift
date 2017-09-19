@@ -56,6 +56,7 @@ class OpeningViewController: UIViewController {
         categoryButton.backgroundColor = UIColor.blue
         categoryButton.contentHorizontalAlignment = .center
         self.view.addSubview(categoryButton)
+        categoryButton.addTarget(self, action: #selector(goToCategorySelectorVC), for: .touchUpInside)
     }
     
     func addNameButton() {
@@ -88,6 +89,10 @@ class OpeningViewController: UIViewController {
         randomButton.backgroundColor = UIColor.blue
         randomButton.contentHorizontalAlignment = .center
         self.view.addSubview(randomButton)
+    }
+    
+    func goToCategorySelectorVC() {
+        self.performSegue(withIdentifier: "toCategorySelector", sender: self)
     }
 
 }
