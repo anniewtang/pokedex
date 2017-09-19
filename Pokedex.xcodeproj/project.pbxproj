@@ -17,6 +17,8 @@
 		3CFC6F3D1D98719100B4EBB5 /* pokeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CFC6F3C1D98719100B4EBB5 /* pokeData.json */; };
 		3CFC6F3F1D9871F100B4EBB5 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC6F3E1D9871F100B4EBB5 /* Pokemon.swift */; };
 		3CFC6F411D9871FC00B4EBB5 /* PokemonGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC6F401D9871FC00B4EBB5 /* PokemonGenerator.swift */; };
+		D1D4986F1F70CBAF000D37B4 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4986E1F70CBAF000D37B4 /* PokemonViewController.swift */; };
+		D1D498711F70CBDB000D37B4 /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D498701F70CBDB000D37B4 /* PokemonCollectionViewCell.swift */; };
 		F34545711F70C77A005FA8D2 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545701F70C77A005FA8D2 /* CategorySelectionViewController.swift */; };
 		F34545731F70C796005FA8D2 /* TypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */; };
 		F34545751F70C7A8005FA8D2 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */; };
@@ -56,6 +58,8 @@
 		3CFC6F3C1D98719100B4EBB5 /* pokeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokeData.json; sourceTree = "<group>"; };
 		3CFC6F3E1D9871F100B4EBB5 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		3CFC6F401D9871FC00B4EBB5 /* PokemonGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonGenerator.swift; sourceTree = "<group>"; };
+		D1D4986E1F70CBAF000D37B4 /* PokemonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
+		D1D498701F70CBDB000D37B4 /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
 		F34545701F70C77A005FA8D2 /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSelectorViewController.swift; sourceTree = "<group>"; };
 		F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				3CFC6F3C1D98719100B4EBB5 /* pokeData.json */,
 				3CFC6F0E1D98716000B4EBB5 /* AppDelegate.swift */,
 				3CFC6F101D98716000B4EBB5 /* OpeningViewController.swift */,
+				D1D4986E1F70CBAF000D37B4 /* PokemonViewController.swift */,
+				D1D498701F70CBDB000D37B4 /* PokemonCollectionViewCell.swift */,
 				F34545701F70C77A005FA8D2 /* CategorySelectionViewController.swift */,
 				F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */,
 				F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */,
@@ -279,11 +285,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F34545751F70C7A8005FA8D2 /* SearchBarViewController.swift in Sources */,
+				D1D498711F70CBDB000D37B4 /* PokemonCollectionViewCell.swift in Sources */,
 				3CFC6F111D98716000B4EBB5 /* OpeningViewController.swift in Sources */,
 				3CFC6F411D9871FC00B4EBB5 /* PokemonGenerator.swift in Sources */,
 				3CFC6F0F1D98716000B4EBB5 /* AppDelegate.swift in Sources */,
 				F34545711F70C77A005FA8D2 /* CategorySelectionViewController.swift in Sources */,
 				F34545731F70C796005FA8D2 /* TypeSelectorViewController.swift in Sources */,
+				D1D4986F1F70CBAF000D37B4 /* PokemonViewController.swift in Sources */,
 				3CFC6F3F1D9871F100B4EBB5 /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
