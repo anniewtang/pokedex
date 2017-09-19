@@ -17,7 +17,7 @@ class SearchResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUpPokemonImages()
     }
 
     
@@ -33,9 +33,13 @@ class SearchResultsViewController: UIViewController {
     }
     
     func setUpPokemonImages() {
-        
+        pokemonImages = []
+        for p in pokemonArr {
+            pokemonImages.append(grabImagesFromURL(p: p))
+        }
     }
-    func grabImagesFromURL(p: Pokemon)->UIImage {        
+    
+    func grabImagesFromURL(p: Pokemon)->UIImage {
         var image: UIImage!
         
         let imgURL = NSURL(string: p.imageUrl)
@@ -51,26 +55,6 @@ class SearchResultsViewController: UIViewController {
             }
         })
         return image!;
-        
-        
-        let imageUrlString = p.imageUrl
-        let imageUrl:URL = URL(string: imageUrlString!)!
-        
-        // Start background thread so that image loading does not make app unresponsive
-        DispatchQueue.global(qos: .userInitiated).async {
-            
-            let imageData:NSData = NSData(contentsOf: imageUrl)!
-            let imageView = UIImageView(frame: CGRect(x:0, y:0, width:200, height:200))
-            imageView.center = self.view.center
-            
-            // When from background thread, UI needs to be updated on main_queue
-            DispatchQueue.main.async {
-                let image = UIImage(data: imageData as Data)
-                imageView.image = image
-                imageView.contentMode = UIViewContentMode.scaleAspectFit
-                self.view.addSubview(imageView)
-            }
-        }
     }
 }
 
