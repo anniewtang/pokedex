@@ -13,8 +13,7 @@ class OpeningViewController: UIViewController {
     var searchLabel: UILabel!
     var categoryButton: UIButton!
     var nameButton: UIButton!
-    var randomButton: UIButton!
-    
+    var randomButton: UIButton!    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,5 +94,6 @@ class OpeningViewController: UIViewController {
     func goToCategorySelectorVC() {
         self.performSegue(withIdentifier: "toCategorySelector", sender: self)
     }
+
 }
 
