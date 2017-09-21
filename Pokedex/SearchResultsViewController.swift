@@ -14,6 +14,7 @@ class SearchResultsViewController: UIViewController {
     
     /* order of images in pokemonImages should be same as in pokemonArr */
     var pokemonArr = PokemonGenerator.getPokemonArray()
+    var results: [Pokemon]!
     var pokemonImages: [UIImage]!
 
     override func viewDidLoad() {

@@ -41,5 +41,22 @@ class PokemonGenerator {
         return pokemonArray
     }
     
-    
+    static func getRandomPokemon(numPokemon: Int) -> [Pokemon] {
+        var results: [Pokemon] = []
+        let pokeArray: [Pokemon] = self.getPokemonArray()
+        while results.count != numPokemon {
+            
+            let randomElement = pokeArray[Int(arc4random_uniform(UInt32(pokeArray.count)))]
+            
+            // if randomElement in results
+            if (results.contains{$0.name == randomElement.name}) {
+                continue
+            } else {
+                results.append(randomElement)
+            }
+            
+        }
+        print(results)
+        return results
+    }
 }

@@ -13,7 +13,9 @@ class OpeningViewController: UIViewController {
     var searchLabel: UILabel!
     var categoryButton: UIButton!
     var nameButton: UIButton!
-    var randomButton: UIButton!    
+    var randomButton: UIButton!
+    
+    var results : [Pokemon]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +25,12 @@ class OpeningViewController: UIViewController {
         addNameButton()
         addRandomButton()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSearchResults" {
+            let searchResultsVC = segue.destination as! SearchResultsViewController
+            searchResultsVC.results = PokemonGenerator.getRandomPokemon(numPokemon: 20)
+        }
     }
 
     func addSearchLabel() {
@@ -99,6 +103,5 @@ class OpeningViewController: UIViewController {
     func goToSearchBarVC() {
         self.performSegue(withIdentifier: "toSearchBar", sender: self)
     }
-
 }
 

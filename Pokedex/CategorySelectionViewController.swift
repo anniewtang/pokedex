@@ -42,11 +42,13 @@ class CategorySelectionViewController: UIViewController {
     
     var types: [String] = ["Bug", "Grass", "Dark", "Ground", "Dragon", "Ice", "Electric", "Normal", "Fairy", "Poison", "Fighting", "Psychic", "Fire", "Rock", "Flying", "Steel", "Ghost", "Water"]
     
+    var results: [Pokemon]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Add in UI Elements
         addAttackLabel()
         addAttackSlider()
         addDefenseLabel()
@@ -56,10 +58,12 @@ class CategorySelectionViewController: UIViewController {
         addTypeButton()
         addSubmitButton()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSearchResults" {
+            let searchResultsVC = segue.destination as! SearchResultsViewController
+            searchResultsVC.results = self.results
+        }
     }
     
     func addAttackLabel() {
@@ -80,7 +84,19 @@ class CategorySelectionViewController: UIViewController {
     func addAttackSlider() {
         // TODO: Determine the maximum and minimum values programatically.
         
+        // get max value
+        
+        var pokeArray = PokemonGenerator.getPokemonArray()
+        maxAttack = pokeArray.reduce(pokeArray[0], {
+            ($0).attack > ($1).attack ? $0 : $1
+        }).attack
+        
+        minAttack = pokeArray.reduce(pokeArray[0], {
+            ($0).attack < ($1).attack ? $0 : $1
+        }).attack
+        
         // UI
+        
         attackPointsSlider = UISlider()
         attackPointsSlider.frame = CGRect(
             x: 20,
@@ -99,6 +115,8 @@ class CategorySelectionViewController: UIViewController {
     }
     
     func addDefenseLabel() {
+        
+        
         // UI
         minDefensePointsLabel = UILabel()
         minDefensePointsLabel.frame = CGRect(
@@ -114,6 +132,17 @@ class CategorySelectionViewController: UIViewController {
     }
     
     func addDefenseSlider() {
+        
+        var pokeArray = PokemonGenerator.getPokemonArray()
+        
+        maxDefense = pokeArray.reduce(pokeArray[0], {
+            ($0).defense > ($1).defense ? $0 : $1
+        }).defense
+        
+        minDefense = pokeArray.reduce(pokeArray[0], {
+            ($0).defense < ($1).defense ? $0 : $1
+        }).defense
+        
         // UI
         defensePointsSlider = UISlider()
         defensePointsSlider.frame = CGRect(
@@ -147,6 +176,18 @@ class CategorySelectionViewController: UIViewController {
     }
     
     func addHealthSlider() {
+        
+        var pokeArray = PokemonGenerator.getPokemonArray()
+        
+        maxHealth = pokeArray.reduce(pokeArray[0], {
+            ($0).health > ($1).health ? $0 : $1
+        }).health
+        
+        minHealth = pokeArray.reduce(pokeArray[0], {
+            ($0).health < ($1).health ? $0 : $1
+        }).health
+
+        
         // UI
         healthPointsSlider = UISlider()
         healthPointsSlider.frame = CGRect(
@@ -200,6 +241,30 @@ class CategorySelectionViewController: UIViewController {
     }
     
     func toSearchResults() {
+        var results = PokemonGenerator.getPokemonArray()
+            .filter({$0.health >= Int(healthPointsSlider.value)})
+            .filter({$0.attack >= Int(attackPointsSlider.value)})
+            .filter({$0.defense >= Int(defensePointsSlider.value)})
+        
+        // for pokemon in results, we only keep it if one of the types is in types
+        results = results.filter({
+            $0.types.map({ (type: String) -> Bool in
+                self.types.contains(type)
+            }).reduce(false, {$0 || $1})
+        })
+        
+        /*
+ func typeInTypes(pokemon: Pokemon) {
+ var returnVal = false
+ for type in pokemon.types {
+ returnVal = returnVal or (type in self.types)
+ }
+ return returnVal
+ }
+*/
+        print(results)
+        print("types")
+        print(types)
         self.performSegue(withIdentifier: "toSearchResult", sender: self)
     }
     
