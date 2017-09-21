@@ -11,6 +11,7 @@ import UIKit
 class SearchResultsViewController: UIViewController {
     
     var collectionView: UICollectionView!
+    var tableView: UITableView!
     
     /* order of images in pokemonImages should be same as in pokemonArr */
     var pokemonArr = PokemonGenerator.getPokemonArray()
