@@ -196,6 +196,11 @@ class CategorySelectionViewController: UIViewController {
         submitButton.backgroundColor = UIColor.blue
         submitButton.contentHorizontalAlignment = .center
         self.view.addSubview(submitButton)
+        submitButton.addTarget(self, action: #selector(toSearchResults), for: .touchUpInside)
+    }
+    
+    func toSearchResults() {
+        self.performSegue(withIdentifier: "toSearchResult", sender: self)
     }
     
     func attackSliderChanged() {
