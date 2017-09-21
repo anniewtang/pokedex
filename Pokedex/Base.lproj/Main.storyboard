@@ -24,7 +24,7 @@
                     </view>
                     <connections>
                         <segue destination="Eee-ki-SA2" kind="show" identifier="toCategorySelector" id="EFG-SD-FP7"/>
-                        <segue destination="Of0-2b-E0U" kind="show" id="SWh-LF-sNk"/>
+                        <segue destination="Of0-2b-E0U" kind="show" identifier="toSearchBar" id="SWh-LF-sNk"/>
                         <segue destination="cud-pD-QSt" kind="show" id="D0F-QG-krR"/>
                     </connections>
                 </viewController>
@@ -46,7 +46,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="hdh-xT-AKI" kind="show" id="Jox-sQ-1bW"/>
+                        <segue destination="hdh-xT-AKI" kind="show" identifier="toTypeSelector" id="Jox-sQ-1bW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4z-ES-vZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -66,8 +66,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="Wr9-VA-mHF" kind="unwind" identifier="unwindToCategorySelector" unwindAction="unwindToCategorySelectorWithSegue:" id="cdj-cP-HPg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3s-rK-V78" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wr9-VA-mHF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2029" y="-1004"/>
         </scene>

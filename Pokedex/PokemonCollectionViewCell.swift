@@ -10,7 +10,6 @@ import UIKit
 
 class PokemonCollectionViewCell: UICollectionViewCell {
     var pokemonObject: Pokemon!
-    var pokemonObject: Pokemon!
     var pokemonImage: UIImageView!
     var pokemonImageView: UIImageView!
     

@@ -40,6 +40,7 @@ class CategorySelectionViewController: UIViewController {
     var minHealth = 10
     var maxHealth = 100
     
+    var types: [String] = ["Bug", "Grass", "Dark", "Ground", "Dragon", "Ice", "Electric", "Normal", "Fairy", "Poison", "Fighting", "Psychic", "Fire", "Rock", "Flying", "Steel", "Ghost", "Water"]
     
     
     override func viewDidLoad() {
@@ -176,6 +177,8 @@ class CategorySelectionViewController: UIViewController {
         typeButton.layer.cornerRadius = 16
         typeButton.backgroundColor = UIColor.blue
         typeButton.contentHorizontalAlignment = .center
+       typeButton.addTarget(self, action: #selector(openTypeSelectionVC), for: .touchUpInside)
+
         self.view.addSubview(typeButton)
     }
     
@@ -206,6 +209,12 @@ class CategorySelectionViewController: UIViewController {
     func healthSliderChanged() {
         minHealthPointsLabel.text = "Minimum Health Points: " + String(healthPointsSlider.value)
     }
+    
+    func openTypeSelectionVC() {
+        self.performSegue(withIdentifier: "toTypeSelector", sender: self)
+    }
+    
+    @IBAction func unwindToCategorySelector(segue: UIStoryboardSegue) {}
     
     /*
     // MARK: - Navigation

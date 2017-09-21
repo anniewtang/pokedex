@@ -24,6 +24,7 @@
 		F34545711F70C77A005FA8D2 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545701F70C77A005FA8D2 /* CategorySelectionViewController.swift */; };
 		F34545731F70C796005FA8D2 /* TypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */; };
 		F34545751F70C7A8005FA8D2 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */; };
+		F34545771F73439E005FA8D2 /* TypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545761F73439E005FA8D2 /* TypeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		F34545701F70C77A005FA8D2 /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSelectorViewController.swift; sourceTree = "<group>"; };
 		F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
+		F34545761F73439E005FA8D2 /* TypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				D1D498701F70CBDB000D37B4 /* PokemonCollectionViewCell.swift */,
 				F34545701F70C77A005FA8D2 /* CategorySelectionViewController.swift */,
 				F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */,
+				F34545761F73439E005FA8D2 /* TypeTableViewCell.swift */,
 				F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */,
 				3CFC6F121D98716000B4EBB5 /* Main.storyboard */,
 				3CFC6F151D98716000B4EBB5 /* Assets.xcassets */,
@@ -297,6 +300,7 @@
 				3CFC6F0F1D98716000B4EBB5 /* AppDelegate.swift in Sources */,
 				F34545711F70C77A005FA8D2 /* CategorySelectionViewController.swift in Sources */,
 				F34545731F70C796005FA8D2 /* TypeSelectorViewController.swift in Sources */,
+				F34545771F73439E005FA8D2 /* TypeTableViewCell.swift in Sources */,
 				D1D498751F70D9D4000D37B4 /* imageFromURLRef.swift in Sources */,
 				D1D4986F1F70CBAF000D37B4 /* PokemonViewController.swift in Sources */,
 				3CFC6F3F1D9871F100B4EBB5 /* Pokemon.swift in Sources */,

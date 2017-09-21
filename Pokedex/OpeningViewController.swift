@@ -72,6 +72,7 @@ class OpeningViewController: UIViewController {
         nameButton.layer.cornerRadius = 16
         nameButton.backgroundColor = UIColor.blue
         nameButton.contentHorizontalAlignment = .center
+        nameButton.addTarget(self, action: #selector(goToSearchBarVC), for: .touchUpInside)
         self.view.addSubview(nameButton)
     }
     
@@ -93,6 +94,10 @@ class OpeningViewController: UIViewController {
     
     func goToCategorySelectorVC() {
         self.performSegue(withIdentifier: "toCategorySelector", sender: self)
+    }
+    
+    func goToSearchBarVC() {
+        self.performSegue(withIdentifier: "toSearchBar", sender: self)
     }
 
 }
