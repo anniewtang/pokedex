@@ -265,7 +265,7 @@ class CategorySelectionViewController: UIViewController {
         print(results)
         print("types")
         print(types)
-        self.performSegue(withIdentifier: "toSearchResult", sender: self)
+        self.performSegue(withIdentifier: "toSearchResults", sender: self)
     }
     
     func attackSliderChanged() {

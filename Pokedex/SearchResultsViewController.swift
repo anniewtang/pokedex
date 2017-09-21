@@ -19,9 +19,12 @@ class SearchResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pokemonArr = results
 
 //        setUpPokemonImages()
         pokemonImages = [#imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question")]
+        
+        
 
     }
     
@@ -83,7 +86,7 @@ class SearchResultsViewController: UIViewController {
 }
 
 
-extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout     {
     
     /* specifying number of sections */
     func numberOfSections(in collectionView: UICollectionView) -> Int {

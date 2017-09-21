@@ -12,6 +12,7 @@ class SearchBarViewController: UIViewController {
 
     var searchBar : UITextField!
     var submitButton : UIButton!
+    var results: [Pokemon]!
     
     
     override func viewDidLoad() {
@@ -20,6 +21,14 @@ class SearchBarViewController: UIViewController {
         // Do any additional setup after loading the view.
         addSearchBar()
         addSubmitButton()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSearchResults" {
+            let searchResultsVC = segue.destination as! SearchResultsViewController
+            searchResultsVC.results = self.results
+            print(self.results)
+        }
     }
     
     func addSearchBar() {
@@ -55,7 +64,15 @@ class SearchBarViewController: UIViewController {
     }
     
     func queryAndGoToSearchResults() {
+        let pokeArray = PokemonGenerator.getPokemonArray()
         
+        if Int(searchBar.text!) != nil {
+            results = pokeArray.filter{$0.number == Int(searchBar.text!)}
+        } else {
+            results = pokeArray.filter{$0.name.lowercased() == searchBar.text!.lowercased()}
+        }
+        
+        performSegue(withIdentifier: "toSearchResults", sender: self)
     }
     
     /*
