@@ -11,14 +11,23 @@ import UIKit
 class SearchResultsViewController: UIViewController {
     
     var collectionView: UICollectionView!
-    var pokemonArr: [Pokemon]!
+    
+    /* order of images in pokemonImages should be same as in pokemonArr */
+    var pokemonArr = PokemonGenerator.getPokemonArray()
     var pokemonImages: [UIImage]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpPokemonImages()
+//        setUpPokemonImages()
+        view.backgroundColor = .green
+        
+        let testLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        testLabel.text = "wow"
+        view.addSubview(testLabel)
+
     }
+    
 
     
     /* Initializaing collection view, and adding it to the view controller */
@@ -26,7 +35,7 @@ class SearchResultsViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView.register(PokemonCollectionViewCell.self, forCellWithReuseIdentifier: "pokemonCell")
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .green
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
@@ -40,21 +49,34 @@ class SearchResultsViewController: UIViewController {
     }
     
     func grabImagesFromURL(p: Pokemon)->UIImage {
+        /* taken from stack overflow question: 24231680 */
+        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
         var image: UIImage!
         
-        let imgURL = NSURL(string: p.imageUrl)
-        let request: NSURLRequest = NSURLRequest(url: imgURL! as URL)
-        let mainQueue = OperationQueue.main
+        let url = URL(string: p.imageUrl)
         
-        NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
-            if error == nil {
-                // Convert the downloaded data in to a UIImage object
-                image = UIImage(data: data!)
-            } else {
-                image = #imageLiteral(resourceName: "question") // if occurred an error put a placeholder image
-            }
-        })
-        return image!;
+        if let data = try? Data(contentsOf: url!) {
+            image = UIImage(data: data)
+        } else {
+            image = #imageLiteral(resourceName: "question")
+        }
+        return image
+        
+//        var image: UIImage!
+//        
+//        let imgURL = NSURL(string: p.imageUrl)
+//        let request: NSURLRequest = NSURLRequest(url: imgURL! as URL)
+//        let mainQueue = OperationQueue.main
+//        
+//        NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
+//            if error == nil {
+//                // Convert the downloaded data in to a UIImage object
+//                image = UIImage(data: data!)
+//            } else {
+//                image = #imageLiteral(resourceName: "question") // if occurred an error put a placeholder image
+//            }
+//        })
+//        return image!;
     }
 }
 
@@ -66,19 +88,32 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         return 1
     }
     
-    /* specifying the total number of cells */
+    /* specifying the total number of cells in a given section */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pokemonArr.count
     }
     
+    // dequeue and set it up
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as! PokemonCollectionViewCell
         cell.awakeFromNib()
         return cell
     }
     
+    // populate data of a cell
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let pokemonCell = cell as! PokemonCollectionViewCell
         pokemonCell.pokemonImageView.image = pokemonImages[indexPath.row]
     }
+    
+    // size of each cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 200);
+    }
+    
+    // if item is selected what do you do
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row);
+    }
+    
 }
