@@ -19,12 +19,7 @@ class SearchResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        setUpPokemonImages()
-        view.backgroundColor = .green
-        
-        let testLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        testLabel.text = "wow"
-        view.addSubview(testLabel)
+        setUpPokemonImages()
 
     }
     
