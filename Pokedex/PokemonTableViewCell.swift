@@ -27,7 +27,7 @@ class PokemonTableViewCell: UITableViewCell {
     
     
     func setImage() {
-        pokemonImageView = UIImageView(frame: CGRect(x: contentView.frame.width*0.2, y: contentView.frame.width*0.2, width: contentView.frame.width*0.2, height: contentView.frame.height*0.2))
+        pokemonImageView = UIImageView(frame: CGRect(x: 20, y: 50, width: contentView.frame.width*0.2, height: contentView.frame.height*0.6))
         pokemonImageView.contentMode = .scaleAspectFill
         contentView.addSubview(pokemonImageView)
     }
