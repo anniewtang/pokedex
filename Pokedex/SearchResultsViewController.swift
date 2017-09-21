@@ -19,7 +19,8 @@ class SearchResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpPokemonImages()
+//        setUpPokemonImages()
+        pokemonImages = [#imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question")]
 
     }
     
@@ -50,29 +51,34 @@ class SearchResultsViewController: UIViewController {
         
         let url = URL(string: p.imageUrl)
         
-        if let data = try? Data(contentsOf: url!) {
-            image = UIImage(data: data)
-        } else {
+        /* if url is not nil, try to get the contents of it and use it */
+        if url != nil {
+//            print("not nil URL: ", url)
+            let data = try? Data(contentsOf: url!)
+            if data != nil {
+//                print("not nil data: ", data)
+                image = UIImage(data: data!)
+            }
+        }
+        else {
+            print("default")
             image = #imageLiteral(resourceName: "question")
         }
+        print("image: ", image)
         return image
-        
-//        var image: UIImage!
-//        
-//        let imgURL = NSURL(string: p.imageUrl)
-//        let request: NSURLRequest = NSURLRequest(url: imgURL! as URL)
-//        let mainQueue = OperationQueue.main
-//        
-//        NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
-//            if error == nil {
-//                // Convert the downloaded data in to a UIImage object
-//                image = UIImage(data: data!)
-//            } else {
-//                image = #imageLiteral(resourceName: "question") // if occurred an error put a placeholder image
-//            }
-//        })
-//        return image!;
     }
+    
+    /* from stack overflow: 35049322 */
+    func verifyUrl (urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if let url  = NSURL(string: urlString) {
+                print("true")
+                return UIApplication.shared.canOpenURL(url as URL)
+            }
+        }
+        return false
+    }
+
 }
 
 
