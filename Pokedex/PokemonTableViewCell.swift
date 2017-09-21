@@ -21,6 +21,7 @@ class PokemonTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
     
     

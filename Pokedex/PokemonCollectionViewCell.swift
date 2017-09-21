@@ -16,6 +16,7 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     var pokemonName: UILabel!
  
     override func awakeFromNib() {
+        super.awakeFromNib()
         setImage()
         setName()
     }

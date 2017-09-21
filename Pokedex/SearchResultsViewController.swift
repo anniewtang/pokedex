@@ -20,13 +20,12 @@ class SearchResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(results)
         pokemonArr = results
-
-//        setUpPokemonImages()
-        pokemonImages = [#imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question")]
-        
-        
-
+        setUpPokemonImages()
+        // pokemonImages = [#imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question"), #imageLiteral(resourceName: "question")]
+        setupCollectionView()
     }
     
 
@@ -69,6 +68,11 @@ class SearchResultsViewController: UIViewController {
             print("default")
             image = #imageLiteral(resourceName: "question")
         }
+        
+        if image == nil {
+            image = #imageLiteral(resourceName: "question")
+        }
+        
         print("image: ", image)
         return image
     }
@@ -102,6 +106,14 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
     // dequeue and set it up
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as! PokemonCollectionViewCell
+        
+        for subview in cell.contentView.subviews{
+            subview.removeFromSuperview()
+        }
+        
+        cell.pokemonObject = pokemonArr[indexPath.row]
+        cell.awakeFromNib()
+        cell.pokemonImageView.image = pokemonImages[indexPath.row]
         cell.awakeFromNib()
         return cell
     }

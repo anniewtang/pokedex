@@ -63,6 +63,7 @@ class CategorySelectionViewController: UIViewController {
         if segue.identifier == "toSearchResults" {
             let searchResultsVC = segue.destination as! SearchResultsViewController
             searchResultsVC.results = self.results
+            
         }
     }
     
@@ -241,7 +242,7 @@ class CategorySelectionViewController: UIViewController {
     }
     
     func toSearchResults() {
-        var results = PokemonGenerator.getPokemonArray()
+        results = PokemonGenerator.getPokemonArray()
             .filter({$0.health >= Int(healthPointsSlider.value)})
             .filter({$0.attack >= Int(attackPointsSlider.value)})
             .filter({$0.defense >= Int(defensePointsSlider.value)})
