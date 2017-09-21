@@ -14,29 +14,21 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     var pokemonImageView: UIImageView!
     
     var pokemonName: UILabel!
-    
-/* POKEMON PROPERTIES
- let name: String!
- let number: Int!
- let attack: Int!
- let defense: Int!
- let health: Int!
- let specialAttack: Int!
- let specialDefense: Int!
- let species: String!
- let speed: Int!
- let total: Int!
- let types: [String]
- let imageUrl: String! */
  
     override func awakeFromNib() {
-        
+        setImage()
+        setName()
+    }
+    
+    func setImage() {
         pokemonImageView = UIImageView(frame: CGRect(x: contentView.frame.width*0.15, y: contentView.frame.height*0.15, width: contentView.frame.width*0.7, height: contentView.frame.height*0.7))
         pokemonImageView.contentMode = .scaleAspectFill
         contentView.addSubview(pokemonImageView)
-        
+    }
+    
+    func setName() {
         pokemonName = UILabel(frame: CGRect(x: contentView.frame.width*0.15, y: contentView.frame.height*0.15, width: contentView.frame.width*0.7, height: contentView.frame.height*0.7))
         pokemonName.text = pokemonObject.name;
         contentView.addSubview(pokemonName);
-    }    
+    }
 }
