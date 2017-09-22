@@ -122,9 +122,6 @@ extension TypeSelectorViewController: UITableViewDataSource, UITableViewDelegate
                 selectedTypes.append(selectedType)
             }
         }
-
-        
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

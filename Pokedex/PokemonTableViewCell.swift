@@ -49,5 +49,9 @@ class PokemonTableViewCell: UITableViewCell {
         contentView.addSubview(numberLabel)
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
     
 }
