@@ -90,6 +90,45 @@
             </objects>
             <point key="canvasLocation" x="870" y="-234"/>
         </scene>
+        <!--Pokemon Profile View Controller-->
+        <scene sceneID="Fo0-nE-iqo">
+            <objects>
+                <viewController id="QIp-0T-1tM" customClass="PokemonProfileViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Na-Bz-hxb"/>
+                        <viewControllerLayoutGuide type="bottom" id="ydl-ER-ioM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8VP-gj-lFf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="lZc-EB-V9u" kind="show" identifier="segueToWebView" id="oXr-xh-cmv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hc-qw-BUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="569"/>
+        </scene>
+        <!--Google Search Web View Controller-->
+        <scene sceneID="dyz-aF-eek">
+            <objects>
+                <viewController id="lZc-EB-V9u" customClass="GoogleSearchWebViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3WJ-kL-yS6"/>
+                        <viewControllerLayoutGuide type="bottom" id="70Q-5x-yVI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R3P-GA-dTn" customClass="GoogleSearchWeb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pGt-Sv-a8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2305" y="569"/>
+        </scene>
         <!--Search Results View Controller-->
         <scene sceneID="Xsp-Va-Imq">
             <objects>
@@ -103,6 +142,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="QIp-0T-1tM" kind="show" identifier="segueToPokemonDetails" id="2Sw-eB-DfC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEK-Co-IFO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,6 +152,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tpq-sa-Q36"/>
+        <segue reference="D0F-QG-krR"/>
     </inferredMetricsTieBreakers>
 </document>
