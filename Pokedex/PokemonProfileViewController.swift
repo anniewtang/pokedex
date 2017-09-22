@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class PokemonProfileViewController: UIViewController {
     
@@ -19,6 +20,8 @@ class PokemonProfileViewController: UIViewController {
     var pokemonImage: UIImage!
     var pokemonImageView: UIImageView!
     var nameLabel: UILabel!
+    
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,6 +150,17 @@ class PokemonProfileViewController: UIViewController {
  
         }
          */
+        var jsonifiedP = p.toJSONString()
+        
+        if userDefaults.object(forKey: "favoritesArray") == nil {
+            var favorites: [String] = [jsonifiedP!]
+            userDefaults.set(favorites, forKey: "favoritesArray")
+            print("howdy")
+        } else {
+            var jsonifiedPokemon = userDefaults.array(forKey: "favoritesArray") as! [String]
+            jsonifiedPokemon.append(jsonifiedP!)
+            userDefaults.set(jsonifiedPokemon, forKey: "favoritesArray")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -155,6 +169,8 @@ class PokemonProfileViewController: UIViewController {
             webView.pokeName = p.name
         }
     }
+    
+    
     
     func searchGoogle() {
         performSegue(withIdentifier: "segueToWebView", sender: self)

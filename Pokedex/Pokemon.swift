@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Pokemon : NSObject {
+class Pokemon : Mappable{
     
     /* Note 1: 
        There are 18 different types of Pokemon, and a single Pokemon can inherit multiple types:
@@ -24,18 +25,18 @@ class Pokemon : NSObject {
        You can access the properties of Pokemon using dot notation (e.g. pokemon.name, pokemon.number, etc.)
      */
  
-    let name: String!
-    let number: Int!
-    let attack: Int!
-    let defense: Int!
-    let health: Int!
-    let specialAttack: Int!
-    let specialDefense: Int!
-    let species: String!
-    let speed: Int!
-    let total: Int!
-    let types: [String]
-    let imageUrl: String!
+    var name: String!
+    var number: Int!
+    var attack: Int!
+    var defense: Int!
+    var health: Int!
+    var specialAttack: Int!
+    var specialDefense: Int!
+    var species: String!
+    var speed: Int!
+    var total: Int!
+    var types: [String]!
+    var imageUrl: String!
     
     init(name: String, number: Int, attack: Int, defense: Int, health: Int, spAttack: Int, spDef: Int, species: String, speed: Int, total: Int, types: [String]) {
         self.name = name
@@ -50,8 +51,28 @@ class Pokemon : NSObject {
         self.total = total
         self.types = types
         // self.imageUrl = "http://img.pokemondb.net/artwork/\(name.components(separatedBy: " ")[0].lowercased()).jpg"
-        let strippedName = String(name.components(separatedBy: " ")[0].lowercased().characters.filter{"abcdefghijklmnopqrstuvwxyz".characters.contains($0)})
+        var strippedName = String(name.components(separatedBy: " ")[0].lowercased().characters.filter{"abcdefghijklmnopqrstuvwxyz".characters.contains($0)})
         self.imageUrl = "http://img.pokemondb.net/artwork/\(strippedName).jpg"
+    }
+    
+    required init?(map: Map) {
+    
+    }
+
+    
+    func mapping(map: Map) {
+        name                <- map["name"]
+        number              <- map["number"]
+        attack              <- map["attack"]
+        defense             <- map["defense"]
+        health              <- map["health"]
+        specialAttack       <- map["specialAttack"]
+        specialDefense      <- map["specialDefense"]
+        species             <- map["species"]
+        speed               <- map["speed"]
+        total               <- map["total"]
+        types               <- map["types"]
+        imageUrl            <- map["imageUrl"]
     }
     
 }

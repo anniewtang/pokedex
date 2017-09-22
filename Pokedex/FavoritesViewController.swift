@@ -7,25 +7,33 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class FavoritesViewController: UIViewController {
     
     var tableView: UITableView!
     var results: [Pokemon]! = []
     var pokemonImages: [UIImage]!
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let temp = UserDefaults.standard.dictionaryRepresentation().values
-        print(UserDefaults.standard.dictionaryRepresentation().keys)
-        for p in temp {
-            print(p)
-            // results.append(p as! Pokemon)
+        if let jsonifiedPokemon = userDefaults.array(forKey: "favoritesArray") {
+            for json in jsonifiedPokemon {
+                results.append(Pokemon(JSONString: json as! String)!)
+            }
         }
         
         setupTableView()
         setUpPokemonImages()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let jsonifiedPokemon = userDefaults.array(forKey: "favoritesArray") {
+            for json in jsonifiedPokemon {
+                results.append(Pokemon(JSONString: json as! String)!)
+            }
+        }
     }
     
     func setupTableView(){
@@ -103,6 +111,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.awakeFromNib()
         
         let p: Pokemon = results[indexPath.row]
+        print(indexPath.row)
         cell.pokePic.image = pokemonImages[indexPath.row]
         cell.nameLabel.text = p.name
         cell.numberLabel.text = "# " +  String(p.number)
