@@ -14,20 +14,6 @@ class PokemonProfileViewController: UIViewController {
     let lightGrayBlue = UIColor(red:0.83, green:0.86, blue:0.88, alpha:1.0)
     let darkGray = UIColor(red:0.17, green:0.25, blue:0.30, alpha:1.0)
     
-    /* POKEMON PROPERTIES
-     let name: String!
-     let number: Int!
-     let attack: Int!
-     let defense: Int!
-     let health: Int!
-     let specialAttack: Int!
-     let specialDefense: Int!
-     let species: String!
-     let speed: Int!
-     let total: Int!
-     let types: [String]
-     let imageUrl: String! */
-    
     var p: Pokemon!
     
     var pokemonImage: UIImage!

@@ -14,8 +14,8 @@ class SearchResultsViewController: UIViewController {
     var tableView: UITableView!
     var collectionView: UICollectionView!
     
-    /* order of images in pokemonImages should be same as in pokemonArr */
-    var pokemonArr = PokemonGenerator.getPokemonArray()
+    /* order of images in pokemonImages should be same as in results */
+    var results: [Pokemon]!
 
     var pokemonImages: [UIImage]!
     
@@ -26,8 +26,8 @@ class SearchResultsViewController: UIViewController {
         super.viewDidLoad()
         
         
-        let slice = pokemonArr[0...30]
-        pokemonArr = Array(slice)
+        let slice = results[0...30]
+        results = Array(slice)
         
         setupSegmentedControl()
         setupTableView()
@@ -110,7 +110,7 @@ class SearchResultsViewController: UIViewController {
     
     func setUpPokemonImages() {
         pokemonImages = []
-        for p in pokemonArr {
+        for p in results {
             pokemonImages.append(grabImagesFromURL(p: p))
         }
     }
@@ -151,7 +151,7 @@ extension SearchResultsViewController: UITableViewDataSource, UITableViewDelegat
     
     /* number of cells in section of tableview */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pokemonArr.count
+        return results.count
     }
     
     /* dequeue & set up cell at indexPath.row 
@@ -165,7 +165,7 @@ extension SearchResultsViewController: UITableViewDataSource, UITableViewDelegat
         }
         cell.awakeFromNib()
         
-        let p: Pokemon = pokemonArr[indexPath.row]
+        let p: Pokemon = results[indexPath.row]
         cell.pokePic.image = pokemonImages[indexPath.row]
         cell.nameLabel.text = p.name
         cell.numberLabel.text = "# " +  String(p.number)
@@ -175,7 +175,7 @@ extension SearchResultsViewController: UITableViewDataSource, UITableViewDelegat
     /* action after tableCell is selected
        "passes" the pokemon object over into the PokemonDetailsVC through segue */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pokemonToPass = pokemonArr[indexPath.row]
+        pokemonToPass = results[indexPath.row]
         pokePicToPass = pokemonImages[indexPath.row]
         performSegue(withIdentifier: "segueToPokemonDetails", sender: self)
     }
@@ -197,7 +197,7 @@ extension SearchResultsViewController: UICollectionViewDataSource, UICollectionV
     
     /* number of cells in a section */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemonArr.count
+        return results.count
     }
     
     /* dequeue & setting up collectionView cell 
@@ -211,7 +211,7 @@ extension SearchResultsViewController: UICollectionViewDataSource, UICollectionV
         }
         cell.awakeFromNib()
         
-        let p: Pokemon = pokemonArr[indexPath.row]
+        let p: Pokemon = results[indexPath.row]
         cell.pokePic.image = pokemonImages[indexPath.row]
         cell.nameLabel.text = p.name
         return cell
@@ -219,7 +219,7 @@ extension SearchResultsViewController: UICollectionViewDataSource, UICollectionV
     
     /* passes the pokemon into PokemonDetails once cell is clicked upon */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        pokemonToPass = pokemonArr[indexPath.row]
+        pokemonToPass = results[indexPath.row]
         pokePicToPass = pokemonImages[indexPath.row]
         performSegue(withIdentifier: "segueToPokemonDetails", sender: self)
     }
