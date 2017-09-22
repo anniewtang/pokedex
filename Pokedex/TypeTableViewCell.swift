@@ -10,9 +10,14 @@ import UIKit
 
 class TypeTableViewCell: UITableViewCell {
 
+    var typeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        typeLabel = UILabel(frame: CGRect(x: 20, y: contentView.frame.height * (1/4), width: 150, height: contentView.frame.height * (1/2)))
+        typeLabel.textColor = UIColor.black
+        contentView.addSubview(typeLabel)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

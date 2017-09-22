@@ -20,7 +20,6 @@ class PokemonTableViewCell: UITableViewCell {
     //When do you think this is called?
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setUpImageView()
         setUpNameLabel()
         setUpNumberLabel()
@@ -39,6 +38,7 @@ class PokemonTableViewCell: UITableViewCell {
         nameLabel.textAlignment = .left
         nameLabel.font = nameLabel.font.withSize(18)
         contentView.addSubview(nameLabel)
+
     }
     
     func setUpNumberLabel() {
@@ -49,10 +49,5 @@ class PokemonTableViewCell: UITableViewCell {
         contentView.addSubview(numberLabel)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
     
 }
