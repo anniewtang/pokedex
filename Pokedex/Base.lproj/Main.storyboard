@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ecO-L1-W3e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="I98-cs-XhP">
+            <objects>
+                <navigationController id="ecO-L1-W3e" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Fj-zD-70w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="R8c-aT-3qe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MNQ-zP-tqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1639" y="-458"/>
+        </scene>
         <!--Opening View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -22,6 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pfD-bl-hQ5"/>
                     <connections>
                         <segue destination="Eee-ki-SA2" kind="show" identifier="toCategorySelector" id="EFG-SD-FP7"/>
                         <segue destination="Of0-2b-E0U" kind="show" identifier="toSearchBar" id="SWh-LF-sNk"/>
@@ -30,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-119" y="-80"/>
+            <point key="canvasLocation" x="-330" y="-38"/>
         </scene>
         <!--Category Selection View Controller-->
         <scene sceneID="wo1-sd-04o">
@@ -159,10 +176,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
         <segue reference="D0F-QG-krR"/>
-=======
-        <segue reference="gmO-fL-FTD"/>
->>>>>>> 273e56b009c33c69bc5dfaf010ae3118a56a8851
     </inferredMetricsTieBreakers>
 </document>

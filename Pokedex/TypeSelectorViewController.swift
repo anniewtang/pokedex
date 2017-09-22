@@ -40,8 +40,8 @@ class TypeSelectorViewController: UIViewController {
     
     func initializeTableView() {
         tableView = UITableView(frame: CGRect(x: 0, y: UIApplication.shared.statusBarFrame.maxY + 10, width: view.frame.width, height: view.frame.height - UIApplication.shared.statusBarFrame.maxY - 100))
-        //Register the tableViewCell you are using
-        tableView.register(TypeTableViewCell.self, forCellReuseIdentifier: "tableViewCell")
+        // Register the tableViewCell you are using
+        tableView.register(TypeTwoTableViewCell.self, forCellReuseIdentifier: "tableViewCell")
         
         //Set properties of TableView
         tableView.delegate = self as UITableViewDelegate
@@ -96,7 +96,7 @@ extension TypeSelectorViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! TypeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! TypeTwoTableViewCell
         
         for subview in cell.contentView.subviews{
             subview.removeFromSuperview()

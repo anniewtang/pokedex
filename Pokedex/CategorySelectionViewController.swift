@@ -72,7 +72,7 @@ class CategorySelectionViewController: UIViewController {
         minAttackPointsLabel = UILabel()
         minAttackPointsLabel.frame = CGRect(
             x: 20,
-            y: 30,
+            y: 80,
             width: 250,
             height: 50
         )
