@@ -27,6 +27,7 @@ class PokemonProfileViewController: UIViewController {
         setupNameAndNumber()
         setUpStatisticsLabels()
         addSearchButton()
+        addFavoriteButton()
     }
     
     func setupImage() {
@@ -95,16 +96,57 @@ class PokemonProfileViewController: UIViewController {
         let searchButton = UIButton(frame:
             CGRect(x: view.frame.width * 0.1,
                    y: view.frame.height * 0.85,
-                   width: view.frame.width * 0.8,
-                   height: view.frame.height * 0.1))
+                   width: view.frame.width * 0.35,
+                   height: view.frame.height * 0.08))
         searchButton.layer.cornerRadius = 3
         searchButton.backgroundColor = lightGrayBlue
-        searchButton.setTitle("Search on the Web", for: .normal)
+        searchButton.setTitle("Web Search", for: .normal)
         searchButton.setTitleColor(darkGray, for: .normal)
-        searchButton.setTitleShadowColor(grayBlue, for: .normal)
+        searchButton.titleLabel?.font = UIFont(name: (searchButton.titleLabel?.font.fontName)!, size: 14)
         searchButton.addTarget(self, action: #selector(searchGoogle), for: .touchUpInside)
         
         view.addSubview(searchButton)
+    }
+    
+    func addFavoriteButton() {
+        let favoriteButton = UIButton(frame:
+            CGRect(x: view.frame.width * 0.5,
+                   y: view.frame.height * 0.85,
+                   width: view.frame.width * 0.35,
+                   height: view.frame.height * 0.08))
+        favoriteButton.layer.cornerRadius = 3
+        favoriteButton.backgroundColor = lightGrayBlue
+        favoriteButton.setTitle("Add to Favorites", for: .normal)
+        favoriteButton.setTitleColor(darkGray, for: .normal)
+        favoriteButton.titleLabel?.font = UIFont(name: (favoriteButton.titleLabel?.font.fontName)!, size: 14)
+        favoriteButton.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
+    
+        view.addSubview(favoriteButton)
+    }
+    
+    func addToFavorites() {
+        /*
+        if UserDefaults.standard.object(forKey: p.name) as? NSData == nil {
+            UserDefaults.standard.set(p, forKey: p.name)
+            print("successful")
+        }
+        */
+        
+        /*
+         if UserDefaults.standard.object(forKey: "favoritesArr") == nil {
+            var favorites: [Pokemon] = [p]
+            var encodedFavorites = NSKeyedArchiver.archivedData(withRootObject: favorites)
+            UserDefaults.standard.set(encodedFavorites, forKey: "favoritesArr")
+        } else {
+            var currentEncodedFavorites = UserDefaults.standard.object(forKey: "favoritesArr")
+            var decodedFavorites = NSKeyedUnarchiver.unarchiveObject(with: currentEncodedFavorites as! Data) as? [Pokemon]
+            decodedFavorites!.append(p)
+            
+            var newEncodedFavorites = NSKeyedArchiver.archivedData(withRootObject: decodedFavorites)
+            UserDefaults.standard.set(newEncodedFavorites, forKey: "favoritesArr")
+ 
+        }
+         */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Pokemon {
+class Pokemon : NSObject {
     
     /* Note 1: 
        There are 18 different types of Pokemon, and a single Pokemon can inherit multiple types:

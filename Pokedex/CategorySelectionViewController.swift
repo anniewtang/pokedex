@@ -228,7 +228,7 @@ class CategorySelectionViewController: UIViewController {
         submitButton = UIButton()
         submitButton.frame = CGRect(
             x: self.view.center.x - 80,
-            y: self.view.frame.height - 80,
+            y: self.view.frame.height - 110,
             width: 160,
             height: 40
         )
