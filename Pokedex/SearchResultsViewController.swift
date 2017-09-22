@@ -25,10 +25,6 @@ class SearchResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let slice = results[0...30]
-        results = Array(slice)
-        
         setupSegmentedControl()
         setupTableView()
         setupCollectionView()
