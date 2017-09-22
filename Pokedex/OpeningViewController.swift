@@ -10,16 +10,19 @@ import UIKit
 
 class OpeningViewController: UIViewController {
     
+    var pokedexImageView: UIImageView!
     var searchLabel: UILabel!
     var categoryButton: UIButton!
     var nameButton: UIButton!
     var randomButton: UIButton!
+    var image: UIImage = #imageLiteral(resourceName: "image")
     
     var results : [Pokemon]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        addPokedexImage()
         addSearchLabel()
         addCategoryButton()
         addNameButton()
@@ -32,12 +35,24 @@ class OpeningViewController: UIViewController {
             searchResultsVC.results = PokemonGenerator.getRandomPokemon(numPokemon: 20)
         }
     }
+    
+    func addPokedexImage() {
+        pokedexImageView = UIImageView()
+        pokedexImageView.frame = CGRect(
+            x: 40,
+            y: 100,
+            width: self.view.frame.width - 80,
+            height: self.view.frame.width - 80
+        )
+        pokedexImageView.image = image
+        self.view.addSubview(pokedexImageView)
+    }
 
     func addSearchLabel() {
         searchLabel = UILabel()
         searchLabel.frame = CGRect(
             x: self.view.center.x - 60,
-            y: self.view.frame.height * 0.35,
+            y: self.view.frame.height * 0.6,
             width: 120,
             height: 50
         )
