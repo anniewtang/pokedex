@@ -93,6 +93,7 @@ class OpeningViewController: UIViewController {
         randomButton.layer.cornerRadius = 16
         randomButton.backgroundColor = UIColor.blue
         randomButton.contentHorizontalAlignment = .center
+        randomButton.addTarget(self, action: #selector(getSearchResults), for: .touchUpInside)
         self.view.addSubview(randomButton)
     }
     
@@ -102,6 +103,10 @@ class OpeningViewController: UIViewController {
     
     func goToSearchBarVC() {
         self.performSegue(withIdentifier: "toSearchBar", sender: self)
+    }
+    
+    func getSearchResults() {
+        self.performSegue(withIdentifier: "toSearchResults", sender: self)
     }
 }
 
