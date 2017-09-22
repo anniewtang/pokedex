@@ -23,9 +23,9 @@
 		D1D498731F70D26A000D37B4 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D498721F70D26A000D37B4 /* SearchResultsViewController.swift */; };
 		D1DDD92D1F74879C009170AD /* GoogleSearchWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DDD92C1F74879C009170AD /* GoogleSearchWebViewController.swift */; };
 		F34545711F70C77A005FA8D2 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545701F70C77A005FA8D2 /* CategorySelectionViewController.swift */; };
-		F34545731F70C796005FA8D2 /* TypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */; };
 		F34545751F70C7A8005FA8D2 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */; };
-		F34545771F73439E005FA8D2 /* TypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545761F73439E005FA8D2 /* TypeTableViewCell.swift */; };
+		F34545781F7497FA005FA8D2 /* TypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */; };
+		F345457A1F7498A4005FA8D2 /* TypeTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34545791F7498A4005FA8D2 /* TypeTwoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +71,7 @@
 		F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSelectorViewController.swift; sourceTree = "<group>"; };
 		F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		F34545761F73439E005FA8D2 /* TypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeTableViewCell.swift; sourceTree = "<group>"; };
+		F34545791F7498A4005FA8D2 /* TypeTwoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeTwoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +128,7 @@
 				F34545701F70C77A005FA8D2 /* CategorySelectionViewController.swift */,
 				F34545721F70C796005FA8D2 /* TypeSelectorViewController.swift */,
 				F34545761F73439E005FA8D2 /* TypeTableViewCell.swift */,
+				F34545791F7498A4005FA8D2 /* TypeTwoTableViewCell.swift */,
 				F34545741F70C7A8005FA8D2 /* SearchBarViewController.swift */,
 				D1D498721F70D26A000D37B4 /* SearchResultsViewController.swift */,
 				D1442FD41F738E8400A13797 /* PokemonTableViewCell.swift */,
@@ -304,9 +306,10 @@
 				3CFC6F411D9871FC00B4EBB5 /* PokemonGenerator.swift in Sources */,
 				3CFC6F0F1D98716000B4EBB5 /* AppDelegate.swift in Sources */,
 				F34545711F70C77A005FA8D2 /* CategorySelectionViewController.swift in Sources */,
-				F34545731F70C796005FA8D2 /* TypeSelectorViewController.swift in Sources */,
 				D1D4986F1F70CBAF000D37B4 /* PokemonProfileViewController.swift in Sources */,
 				3CFC6F3F1D9871F100B4EBB5 /* Pokemon.swift in Sources */,
+				F345457A1F7498A4005FA8D2 /* TypeTwoTableViewCell.swift in Sources */,
+				F34545781F7497FA005FA8D2 /* TypeSelectorViewController.swift in Sources */,
 				D1D498731F70D26A000D37B4 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
