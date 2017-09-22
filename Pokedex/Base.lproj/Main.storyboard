@@ -42,7 +42,7 @@
                     <connections>
                         <segue destination="Eee-ki-SA2" kind="show" identifier="toCategorySelector" id="EFG-SD-FP7"/>
                         <segue destination="Of0-2b-E0U" kind="show" identifier="toSearchBar" id="SWh-LF-sNk"/>
-                        <segue destination="cud-pD-QSt" kind="show" id="D0F-QG-krR"/>
+                        <segue destination="cud-pD-QSt" kind="show" identifier="toSearchResults" id="D0F-QG-krR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
