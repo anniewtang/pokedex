@@ -14,7 +14,8 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     let lightGrayBlue = UIColor(red:0.83, green:0.86, blue:0.88, alpha:1.0)
     let darkGray = UIColor(red:0.17, green:0.25, blue:0.30, alpha:1.0)
  
-    var pokePic: UIImageView!
+    var pokemonObject: Pokemon!
+    var pokePic: UIImageView = UIImageView(image: #imageLiteral(resourceName: "pokeball"))
     var nameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -40,6 +41,7 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         pokePic.contentMode = .scaleAspectFit
         pokePic.clipsToBounds = true
         contentView.addSubview(pokePic)
+        
+
     }
-    
 }

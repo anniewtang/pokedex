@@ -43,6 +43,13 @@ class PokemonProfileViewController: UIViewController {
         pokemonImageView.contentMode = .scaleAspectFit
         pokemonImageView.clipsToBounds = true
         view.addSubview(pokemonImageView)
+        
+        Utils.getImage(url: p.imageUrl) { img in
+            self.pokemonImageView.image = img
+        }
+        if pokemonImageView.image == nil {
+            pokemonImageView.image = #imageLiteral(resourceName: "pokeball")
+        }
     }
     
     func setupNameAndNumber() {
@@ -113,7 +120,7 @@ class PokemonProfileViewController: UIViewController {
     
     func addFavoriteButton() {
         let favoriteButton = UIButton(frame:
-            CGRect(x: view.frame.width * 0.5,
+            CGRect(x: view.frame.width * 0.55,
                    y: view.frame.height * 0.85,
                    width: view.frame.width * 0.35,
                    height: view.frame.height * 0.08))

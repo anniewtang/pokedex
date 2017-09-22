@@ -12,7 +12,7 @@ class PokemonTableViewCell: UITableViewCell {
     
     var pokemonObject: Pokemon!
     // how to get pokemon? do that PokemonTableViewCell.pokemonObject = something thing like fruitVC
-    var pokePic: UIImageView!
+    var pokePic: UIImageView! = UIImageView(image: #imageLiteral(resourceName: "pokeball"))
     
     var nameLabel: UILabel!
     var numberLabel: UILabel!

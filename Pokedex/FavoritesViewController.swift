@@ -34,6 +34,7 @@ class FavoritesViewController: UIViewController {
                 results.append(Pokemon(JSONString: json as! String)!)
             }
         }
+        tableView.reloadData()
     }
     
     func setupTableView(){
@@ -111,7 +112,6 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.awakeFromNib()
         
         let p: Pokemon = results[indexPath.row]
-        print(indexPath.row)
         cell.pokePic.image = pokemonImages[indexPath.row]
         cell.nameLabel.text = p.name
         cell.numberLabel.text = "# " +  String(p.number)

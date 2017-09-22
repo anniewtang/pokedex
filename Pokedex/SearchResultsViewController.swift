@@ -16,7 +16,7 @@ class SearchResultsViewController: UIViewController {
     
     /* order of images in pokemonImages should be same as in results */
     var results: [Pokemon]!
-    var pokemonImages: [UIImage]!
+    // var pokemonImages: [UIImage]!
     
     var pokemonToPass: Pokemon!
     var pokePicToPass: UIImage!
@@ -28,7 +28,6 @@ class SearchResultsViewController: UIViewController {
         setupTableView()
         setupCollectionView()
 
-        setUpPokemonImages()
     }
     
     /* Initializing SegmentedControl and adding to view */
@@ -94,47 +93,53 @@ class SearchResultsViewController: UIViewController {
         if segue.identifier == "segueToPokemonDetails" {
             let pokemonDetails = segue.destination as! PokemonProfileViewController
             pokemonDetails.p = pokemonToPass
-            pokemonDetails.pokemonImage = pokePicToPass
         }
     }
     
-    func setUpPokemonImages() {
-        pokemonImages = []
-        for p in results {
-            pokemonImages.append(grabImagesFromURL(p: p))
-        }
-    }
     
-    func grabImagesFromURL(p: Pokemon)->UIImage {
-        /* taken from stack overflow question: 24231680 */
-        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        var image: UIImage!
-        
-        let url = URL(string: p.imageUrl)
-        
-        /* if url is not nil, try to get the contents of it and use it */
-        if url != nil {
-            do {
-                let data = try Data(contentsOf: url!)
-                image = UIImage(data: data)
-            }
-            catch {
-                image = #imageLiteral(resourceName: "pokeball")
-            }
-        }
-        else {
-            print("default")
-            image = #imageLiteral(resourceName: "question")
-        }
-        
-        if image == nil {
-            image = #imageLiteral(resourceName: "question")
-        }
-        
-        print("image: ", image)
-        return image
-    }
+    
+
+//    func setUpPokemonImages() {
+//        pokemonImages = []
+//        for p in results {
+//            pokemonImages.append(grabImagesFromURL(p: p))
+//        }
+//    }
+//    
+//    func grabImagesFromURL(p: Pokemon)->UIImage {
+//        /* taken from stack overflow question: 24231680 */
+//        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+//        var image: UIImage!
+//        
+//        let url = URL(string: p.imageUrl)
+//        
+//        /* if url is not nil, try to get the contents of it and use it */
+//        if url != nil {
+//            do {
+//                let data = try Data(contentsOf: url!)
+//                image = UIImage(data: data)
+//            }
+//            catch {
+//                image = #imageLiteral(resourceName: "pokeball")
+//            }
+//        }
+//        else {
+//            print("default")
+//            image = #imageLiteral(resourceName: "question")
+//        }
+//        
+//        if image == nil {
+//            image = #imageLiteral(resourceName: "question")
+//        }
+//        
+//        print("image: ", image)
+//        return image
+//    }
+    
+    
+ 
 }
+ 
 
 
 /* extension of TABLEVIEWS */
@@ -158,10 +163,18 @@ extension SearchResultsViewController: UITableViewDataSource, UITableViewDelegat
         for subview in cell.contentView.subviews {
             subview.removeFromSuperview()
         }
+        let p: Pokemon = results[indexPath.row]
+
+        cell.pokemonObject = p
+
         cell.awakeFromNib()
         
-        let p: Pokemon = results[indexPath.row]
-        cell.pokePic.image = pokemonImages[indexPath.row]
+        Utils.getImage(url: p.imageUrl) { img in
+            cell.pokePic.image = img
+        }
+        if cell.pokePic.image == nil {
+            cell.pokePic.image = #imageLiteral(resourceName: "pokeball")
+        }
         cell.nameLabel.text = p.name
         cell.numberLabel.text = "# " +  String(p.number)
         return cell
@@ -171,7 +184,6 @@ extension SearchResultsViewController: UITableViewDataSource, UITableViewDelegat
        "passes" the pokemon object over into the PokemonDetailsVC through segue */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         pokemonToPass = results[indexPath.row]
-        pokePicToPass = pokemonImages[indexPath.row]
         performSegue(withIdentifier: "segueToPokemonDetails", sender: self)
     }
     
@@ -204,10 +216,16 @@ extension SearchResultsViewController: UICollectionViewDataSource, UICollectionV
         for subview in cell.contentView.subviews {
             subview.removeFromSuperview()
         }
+        let p: Pokemon = results[indexPath.row]
         cell.awakeFromNib()
         
-        let p: Pokemon = results[indexPath.row]
-        cell.pokePic.image = pokemonImages[indexPath.row]
+        // cell.pokePic.image = pokemonImages[indexPath.row]
+        Utils.getImage(url: p.imageUrl) { img in
+            cell.pokePic.image = img
+        }
+        if cell.pokePic.image == nil {
+            cell.pokePic.image = #imageLiteral(resourceName: "pokeball")
+        }
         cell.nameLabel.text = p.name
         return cell
     }
@@ -215,7 +233,6 @@ extension SearchResultsViewController: UICollectionViewDataSource, UICollectionV
     /* passes the pokemon into PokemonDetails once cell is clicked upon */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         pokemonToPass = results[indexPath.row]
-        pokePicToPass = pokemonImages[indexPath.row]
         performSegue(withIdentifier: "segueToPokemonDetails", sender: self)
     }
     
